@@ -1,4 +1,14 @@
-function selectManualSpectraFN(~,~)                            % begin selectManualSpectra function with no inputs
+function selectSpectraPressedFN(~,~)                            % begin selectManualSpectra function with no inputs
+finderUpperRange = findall(gcf,'tag','spectraFinderUpperRange');
+finderLowerRange = findall(gcf,'tag','spectraFinderLowerRange');
+if finderUpperRange ~= 0                                                 % if that exists
+    delete(finderUpperRange);                                            % delete it
+    delete(finderLowerRange);
+end
+prevScat = findall(gcf,'tag','spectra');                         % find the previous scatter plot
+if prevScat ~= 0                                                 % if that exists
+    delete(prevScat);                                            % delete it
+end
 prevLine = findall(gcf,'tag','spectraRange');                % find the previous line
 if prevLine ~= 0                                             % if that line exists
     delete(prevLine);                                        % delete it
